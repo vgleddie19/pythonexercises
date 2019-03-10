@@ -16,7 +16,7 @@ print "Ready hit Return to continue, CTRL-C to abort"
 raw_input()
 
 out_file = open(to_file, 'w')
-out_file.write(indata)
+out_file.write(in_file)
 
 print "Alright, all done."
 
