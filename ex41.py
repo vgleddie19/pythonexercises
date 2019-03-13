@@ -20,7 +20,7 @@ PHRASES = {
 
 #do they want to drill phrases first
 PHRASE_FIRST = False
-if len(sys.argv) == 2 and sys.argv[1] == english:
+if len(sys.argv) == 2 and sys.argv[1] == "english":
     PHRASE_FIRST = True
 
 #load up the words from the website
@@ -38,6 +38,7 @@ def convert(snippet, phrase):
         param_count = random.randint(1,3)
         param_names.append(', '.join(random.sample(WORDS,param_count)))
 
+    results.append("sample")
     for sentence in snippet, phrase:
         result = sentence[:]
 
@@ -55,6 +56,7 @@ def convert(snippet, phrase):
 
         results.append(result)
     
+    print result
     return results
 
 # keep going until they hit CTRL-D 
@@ -62,14 +64,15 @@ try:
     while True:        
         snippets = PHRASES.keys()        
         random.shuffle(snippets)        
-        for snippet in snippets:            
+        for snippet in snippets:                        
             phrase = PHRASES[snippet]            
-            question, answer = convert(snippet, phrase)            
+            print phrase,snippet
+            question, answer = convert(snippet, phrase),convert(snippet, phrase)               
             if PHRASE_FIRST:                
                 question, answer = answer, question            
-            print question
-            print "ANSWER:  %s\n\n" % answer
-            raw_input("> ")            
-            print "ANSWER:  %s\n\n" % answer 
+            # print question
+            # print "ANSWER:  %s\n\n" % answer
+            # raw_input("> ")            
+            # print "ANSWER:  %s\n\n" % answer 
 except EOFError:    
     print "\nBye"
