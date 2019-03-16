@@ -20,7 +20,7 @@ PHRASES = {
 
 #do they want to drill phrases first
 PHRASE_FIRST = False
-if len(sys.argv) == 2 and sys.argv[1] == "english":
+if len(sys.argv) == 2 or sys.argv[1] == "english":
     PHRASE_FIRST = True
 
 #load up the words from the website
